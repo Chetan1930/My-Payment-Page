@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Make a Payment</h1>
+        <form id="payment-form" action="send_email.php" method="POST" enctype="multipart/form-data">
+            <div class="payment-methods">
+                <label for="amount">Enter Amount:</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+                
+                <div class="method">
+                    <input type="radio" id="phonepe" name="payment-method" value="PhonePe" checked>
+                    <label for="phonepe"><img src="phonepe-logo.png" alt="PhonePe" class="logo">PhonePe</label>
+                </div>
+                <div class="method">
+                    <input type="radio" id="googlepay" name="payment-method" value="GooglePay">
+                    <label for="googlepay"><img src="googlepay-logo.png" alt="Google Pay" class="logo">Google Pay</label>
+                </div>
+            </div>
+
+            <div class="transaction-details">
+                <label for="transaction-id">Transaction ID:</label>
+                <input type="text" id="transaction-id" name="transaction_id" placeholder="Enter Transaction ID" required>
+
+                <label for="screenshot">Upload Payment Screenshot:</label>
+                <input type="file" id="screenshot" name="screenshot" accept="image/*,application/pdf" required>
+            </div>
+
+            <button type="submit">Submit Payment</button>
+        </form>
+    </div>
+
+    <!-- QR Code Modal -->
+    <div id="qr-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Scan the QR Code to Pay</h2>
+            <img src="GooglePay_QR.png" alt="QR Code" class="qr-code">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
